@@ -1,105 +1,128 @@
 import java.util.Scanner;
-import programacion.empresaprogramacion.*;
+
+import programacion.empresaprogramacion.Empleado;
+import programacion.empresaprogramacion.Empresa;
+import programacion.empresaprogramacion.Gerente;
+import programacion.empresaprogramacion.ParametroInvalidoException;
 
 public class MainEmpresaProgramadores {
+  static Scanner scanner = new Scanner(System.in);
+
   public static void main(String[] args) {
-      Empresa empresa = new Empresa("Empresa del Juan de la Cierva");
-      int opcion = 0;
+    Empresa empresa = new Empresa("Empresa del Juan de la Cierva");
+    int opcion = 0;
 
-      Scanner scanner = new Scanner(System.in);
+    String parametros = "";
 
-      String parametros = "";
+    Empleado referencia;
 
-      Empleado referencia;
+    // referencia = new Programador(parametros);
+    // empresa.addEmpleado(referencia);
 
-      referencia = new Programador(parametros);
+    // referencia = new Programador(parametros);
+    // empresa.addEmpleado(referencia);
+
+    try {
+      referencia = new Gerente("01234567A", "Perico Palotes", 5000, "R&D");
       empresa.addEmpleado(referencia);
+    } catch (ParametroInvalidoException e) {
+      System.out.println("Excepción capturada: " + e.getMessage());
+    }
 
-      referencia = new Programador(parametros);
+    try {
+      referencia = new Gerente("01234568B", "Benito Camelos", 50000, "Sales");
       empresa.addEmpleado(referencia);
+    } catch (ParametroInvalidoException e) {
+      System.out.println("Excepción capturada: " + e.getMessage());
+    }
 
-      referencia = new Gerente(parametros, opcion, parametros);
+    try {
+      referencia = new Gerente("01234568B", "Benito Camelos", 50000, "Sales");
       empresa.addEmpleado(referencia);
+    } catch (ParametroInvalidoException e) {
+      System.out.println("Excepción capturada: " + e.getMessage());
+    }
 
-      referencia = new Gerente(parametros, opcion, parametros);
-      empresa.addEmpleado(referencia);
 
-      referencia = new Programador(parametros);
-      empresa.addEmpleado(referencia);
+    // referencia = new Programador(parametros);
+    // empresa.addEmpleado(referencia);
 
-      referencia = new Programador(parametros);
-      empresa.addEmpleado(referencia);
+    // referencia = new Programador(parametros);
+    // empresa.addEmpleado(referencia);
 
-      referencia = new Programador(parametros);
-      empresa.addEmpleado(referencia);
+    // referencia = new Programador(parametros);
+    // empresa.addEmpleado(referencia);
 
-      referencia = new Programador(parametros);
-      empresa.addEmpleado(referencia);
+    // referencia = new Programador(parametros);
+    // empresa.addEmpleado(referencia);
 
-      do {
-          imprimirMenu();
-          opcion = scanner.nextInt();
-          scanner.nextLine(); // Limpiar buffer
+    System.out.println("############### Empresa.toString():\n");
+    System.out.println(empresa);
+    System.out.println("###############\n");
+    // do {
+    // imprimirMenu();
+    // opcion = scanner.nextInt();
+    // scanner.nextLine(); // Limpiar buffer
 
-          switch (opcion) {
+    // switch (opcion) {
 
-              case 1:
-                  // Imprimir todos los empleados
-                  empresa.toStringEmpleados();
-                  break;
+    // case 1:
+    // // Imprimir todos los empleados
+    // empresa.toStringEmpleados();
+    // break;
 
-              case 2:
-                  // Imprimir programadores
-                  empresa.toStringProgramadores();
-                  break;
+    // case 2:
+    // // Imprimir programadores
+    // empresa.toStringProgramadores();
+    // break;
 
-              case 3:
-                  // Imprimir empleados por sueldo de MAYOR A MENOR
-                  empresa.toStringOrdenSueldo();
-                  break;
+    // case 3:
+    // // Imprimir empleados por sueldo de MAYOR A MENOR
+    // empresa.toStringOrdenSueldo();
+    // break;
 
-              case 4:
-                  // Imprimir empleados por nombre
-                  empresa.toStringOrdenNombre();
-                  break;
+    // case 4:
+    // // Imprimir empleados por nombre
+    // empresa.toStringOrdenNombre();
+    // break;
 
-              case 5:
-                  // Cargar desde CSV
-                  System.out.println("Ingrese el nombre del archivo CSV a cargar:");
-                  String archivoCargar = scanner.nextLine();
-                  empresa.cargarDesdeCSV(archivoCargar);
-                  break;
+    // case 5:
+    // // Cargar desde CSV
+    // System.out.println("Ingrese el nombre del archivo CSV a cargar:");
+    // String archivoCargar = scanner.nextLine();
+    // empresa.cargarDesdeCSV(archivoCargar);
+    // break;
 
-              case 6:
-                  // Guardar en CSV
-                  System.out.println("Ingrese el nombre del archivo CSV para guardar:");
-                  String archivoGuardar = scanner.nextLine();
-                  empresa.guardarEnCSV(archivoGuardar);
-                  break;
+    // case 6:
+    // // Guardar en CSV
+    // System.out.println("Ingrese el nombre del archivo CSV para guardar:");
+    // String archivoGuardar = scanner.nextLine();
+    // empresa.guardarEnCSV(archivoGuardar);
+    // break;
 
-              case 7:
-                  System.out.println("Saliendo...");
-                  break;
+    // case 7:
+    // System.out.println("Saliendo...");
+    // break;
 
-              default:
-                  System.out.println("Opción inválida");
-                  break;
-          }
+    // default:
+    // System.out.println("Opción inválida");
+    // break;
+    // }
 
-      } while (opcion != 7);
+    // } while (opcion != 7);
 
-      scanner.close();
+    // scanner.close();
   }
 
   private static void imprimirMenu() {
-      System.out.println("### Menú Empresa ###");
-      System.out.println("1. Imprimir todos los empleados");
-      System.out.println("2. Imprimir todos los programadores");
-      System.out.println("3. Imprimir empleados por sueldo");
-      System.out.println("4. Imprimir empleados por nombre");
-      System.out.println("5. Cargar desde fichero CSV");
-      System.out.println("6. Guardar en CSV");
-      System.out.println("7. Salir");
-      System.out.println("Introduce una opción:");
+    System.out.println("### Menú Empresa ###");
+    System.out.println("1. Imprimir todos los empleados");
+    System.out.println("2. Imprimir todos los programadores");
+    System.out.println("3. Imprimir empleados por sueldo");
+    System.out.println("4. Imprimir empleados por nombre");
+    System.out.println("5. Cargar desde fichero CSV");
+    System.out.println("6. Guardar en CSV");
+    System.out.println("7. Salir");
+    System.out.println("Introduce una opción:");
   }
 }

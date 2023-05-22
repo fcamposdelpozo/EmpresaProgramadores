@@ -3,21 +3,22 @@ package programacion.empresaprogramacion;
 public class Gerente extends Empleado {
   private String departamento;
 
-  public Gerente(String nombre, double sueldo, String departamento2) {
-      super(nombre, sueldo);
+  public Gerente(String dni, String nombre, double sueldo, String departamento) throws ParametroInvalidoException {
+    super(dni,nombre, sueldo);
+    this.departamento = departamento;
   }
 
   public String getDepartamento() {
-      return departamento;
+    return departamento;
   }
 
   @Override
   public TipoEmpleado getTipo() {
-      return TipoEmpleado.GERENTE;
+    return TipoEmpleado.GERENTE;
   }
 
   @Override
   public String toString() {
-      return "Gerente [nombre=" + getNombre() + ", sueldo=" + getSueldo() + ", departamento=" + departamento + "]";
+    return super.toString() + ", " + departamento;
   }
 }
