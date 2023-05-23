@@ -2,7 +2,7 @@ package programacion.empresaprogramacion;
 
 import java.util.Comparator;
 
-public abstract class Empleado {
+public abstract class Empleado implements Comparable<Empleado> {
   private String dni;
   private String nombre;
   private Double sueldo;

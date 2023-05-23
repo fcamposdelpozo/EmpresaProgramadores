@@ -23,8 +23,6 @@ public class Programador extends Empleado {
 
   @Override
   public String toString() {
-      String plus = plusIdioma ? "Sí" : "No";
-      return "Programador [nombre=" + getNombre() + ", sueldo=" + getSueldo() + ", lenguaje=" + lenguaje
-              + ", plusIdioma=" + plus + "]";
+      return super.toString() + ", " + lenguaje + ", " + (plusIdioma?"si":"no") + " sabe idiomas";
   }
 }
